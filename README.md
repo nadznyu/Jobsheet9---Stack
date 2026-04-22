@@ -34,3 +34,32 @@
      - Akses stack[top] akan melampaui batas array -> program pun akan langsung crash dengan error 
        ArrayIndexOutOfBoundsException.
 
+***Pertanyaan 2.2.3***
+1.	Jelaskan alur kerja dari method konversiDesimalKeBiner!
+2.	Pada method konversiDesimalKeBiner, ubah kondisi perulangan menjadi while (kode != 0), bagaimana 
+   hasilnya? Jelaskan alasannya!
+
+***Jawaban Pertanyaan 2.2.3***
+1. Tahap 1:
+   - Method menerima parameter nilai bertipe int (contoh: 87)
+   - Selama nilai > 0, program akan terus melakukan
+     ~ Menghitung sisa bagi: sisa = nilai % 2 -> hasilnya 0 atau 1
+     ~ Push sisa tersebut ke dalam StackKonversi
+     ~ Update nilai: nilai = nilai / 2 (pembagian int)
+   - Proses ini merupakan pembagian berulang dengan 2, yang merupakan cara manual konversi desimal 
+     ke biner
+   Tahap 2: 
+   - Membuat variabel String yang kosong
+   - Selama Stack tidak kosong, lakukan pop() dan kemudian gabungkan hasilnya ke biner
+   - Karena Stack bersifat LIFO, maka data yang terakhir masuk (sisa pembagian terakhir) akan keluar 
+     pertama
+   - Secara otomatis akan membalikkan urutan dari sisa-sisa pembagian, sehingga hasil biner tersusun 
+     dari bit paling signifikan (MSB) ke bit paling tidak signifikan (LSB)
+   Tahap 3:
+   - Method akan mengembalikan String "1010111" yang merupakan representasi dari 87
+2. Hasilnya akan sama persis selama input nilai yang dimasukkan adalah bilangan positif.
+   - Untuk input nilai positif hasilnya akan sama, tetapi kondisi nilai > 0 lebih aman karena 
+     menghindari kemungkinan infinite loop jika nilai yang dimasukkan adalah negatif. Oleh karena itu, penggunaan nilai > 0 lebih disarankan.
+
+
+
